@@ -1,60 +1,150 @@
-<form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durga Puja Dance Competition 2026</title>
 
-<label><b>👤 Participant Name / অংশগ্রহণকারীর নাম</b></label>
-<input type="text" placeholder="Participant Name" required>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
 
-<label><b>📱 Mobile Number / মোবাইল নম্বর</b></label>
-<input type="tel" placeholder="Mobile Number" required>
+body{
+background:#0f0f0f;
+color:white;
+}
 
-<label><b>🎂 Age / বয়স</b></label>
-<input type="number" placeholder="Age" required>
+/* HERO */
+header{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1606298855672-3efb63017be8?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
 
-<label><b>💃 Dance Category</b></label>
-<select required>
-<option>Solo Dance</option>
-<option>Group Dance</option>
-<option>Kids Dance</option>
-<option>Folk Dance</option>
-</select>
-
-<label><b>📷 Participant Photo / অংশগ্রহণকারীর ছবি</b></label>
-<input type="file" accept="image/*">
-
-<label><b>💰 Payment Screenshot / পেমেন্ট স্ক্রিনশট</b></label>
-<input type="file" accept="image/*">
-
-<button type="submit">🎉 Submit Registration</button>
-
-</form>
-
-label{
-display:block;
-margin-top:15px;
-margin-bottom:5px;
+.hero h1{
+font-size:60px;
 color:#ffd700;
-font-size:16px;
+margin-bottom:10px;
 }
 
-.card:hover,
-.info-box:hover{
-transform:translateY(-5px);
-transition:0.3s;
-box-shadow:0 0 20px rgba(255,215,0,0.3);
+.hero h2{
+font-size:28px;
+margin-bottom:20px;
 }
 
-.btn:hover{
-background:#fff;
-transition:0.3s;
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+line-height:1.7;
 }
 
-html{
-scroll-behavior:smooth;
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
+background:#ffd700;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+border-radius:30px;
 }
 
-<a href="https://wa.me/919267988960" class="whatsapp-btn">
-💬
-</a>
+/* SECTIONS */
+section{
+padding:80px 10%;
+}
 
+.section-title{
+text-align:center;
+font-size:40px;
+color:#ffd700;
+margin-bottom:40px;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.info-box{
+background:#1a1a1a;
+padding:25px;
+border-radius:15px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:25px;
+border-radius:15px;
+border:1px solid #333;
+}
+
+/* FORM */
+form{
+max-width:700px;
+margin:auto;
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#ffd700;
+border:none;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
+}
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
 .whatsapp-btn{
 position:fixed;
 bottom:20px;
@@ -72,15 +162,68 @@ text-decoration:none;
 box-shadow:0 0 15px rgba(0,0,0,.3);
 z-index:999;
 }
+</style>
+</head>
 
-<p>Durga Puja Dance Competition Committee</p>
+<body>
+
+<header>
+<div class="hero">
+<h1>🏵️ শর্বজনীন দুর্গা পূজা সমিতি 🏵️</h1>
+<h2>Durga Puja Dance Competition 2026</h2>
+
+<p>Welcome to the official Dance Competition Registration Portal.</p>
+
+<a href="#register" class="btn">Register Now</a>
+</div>
+</header>
+
+<section id="register">
+<h2 class="section-title">Registration Form</h2>
+
+<form>
+
+<input type="text" placeholder="Participant Name" required>
+
+<input type="tel" placeholder="Mobile Number" required>
+
+<input type="number" placeholder="Age" required>
+
+<select required>
+<option>Solo Dance</option>
+<option>Group Dance</option>
+</select>
+
+<!-- ✅ ADDED -->
+<label>📷 Participant Photo</label>
+<input type="file" accept="image/*">
+
+<!-- ✅ ADDED -->
+<label>💰 Payment Proof / Screenshot</label>
+<input type="file" accept="image/*">
+
+<button type="submit">Submit Registration</button>
+
+</form>
+</section>
+
+<section>
+<h2 class="section-title">Durga Puja Gallery</h2>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?q=80&w=800&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1631387736926-1f4d26e9dd98?q=80&w=800&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1605538883669-8256a57f8f6e?q=80&w=800&auto=format&fit=crop">
+</div>
+</section>
 
 <footer>
 <h3>🏵️ Shorbo Jonin Durga Puja Samiti</h3>
 <p>Durga Puja Dance Competition 2026</p>
-<p>Designed with ❤️ for our community celebration</p>
 </footer>
 
-<img src="images/durga1.jpg">
-<img src="images/durga2.jpg">
-<img src="images/stage.jpg">
+<!-- ✅ WHATSAPP BUTTON -->
+<a href="https://wa.me/919267988960" class="whatsapp-btn">💬</a>
+
+</body>
+</html>
