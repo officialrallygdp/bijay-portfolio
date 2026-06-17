@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bijay Jha | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:white;
+    color:#111;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+section{
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#60a5fa;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+    color:#94a3b8;
+}
+</style>
 </head>
-<body style="text-align:center; margin-top:100px;">
-    <h1>🚀 Welcome to My Website</h1>
-    <p>This website was created by Bijay.</p>
+
+<body>
+
+<header>
+    <h1>🚀 Bijay Jha</h1>
+    <p>Web Developer | Motorsports Enthusiast | Tech Explorer</p>
+    <a href="#projects" class="btn">View My Work</a>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        Hello! I'm Bijay. I enjoy creating websites, exploring technology,
+        and working on motorsports-related projects. This portfolio showcases
+        my skills, projects, and experience.
+    </p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🏎️ Motorsport Project</h3>
+            <p>Event management and motorsports related web solutions.</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Portfolio Website</h3>
+            <p>Responsive personal portfolio built using HTML and CSS.</p>
+        </div>
+
+        <div class="card">
+            <h3>📱 Mobile App Testing</h3>
+            <p>UI testing, bug reporting and feature verification.</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <p>
+        HTML • CSS • JavaScript • GitHub • Testing • UI Review • Documentation
+    </p>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>Email: your-email@example.com</p>
+    <p>GitHub: github.com/bijayjha2001</p>
+</section>
+
+<footer>
+    © 2026 Bijay Jha | All Rights Reserved
+</footer>
+
 </body>
 </html>
