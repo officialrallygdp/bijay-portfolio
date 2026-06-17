@@ -3,142 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durga Puja Dance Competition</title>
+<title>Durga Puja Dance Competition 2026</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
 body{
-    background:#0f0f0f;
-    color:white;
-    font-family:Segoe UI, sans-serif;
-    margin:0;
-    padding:20px;
+background:#0f0f0f;
+color:white;
+}
+
+header{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1606298855672-3efb63017be8?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+color:#ffd700;
+margin-bottom:10px;
+}
+
+.hero h2{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
+background:#ffd700;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+border-radius:30px;
+}
+
+section{
+padding:80px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:40px;
+color:#ffd700;
+margin-bottom:40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:25px;
+border-radius:15px;
+border:1px solid #333;
+}
+
+.card h3{
+color:#ffd700;
+margin-bottom:10px;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.info-box{
+background:#1a1a1a;
+padding:25px;
+border-radius:15px;
 }
 
 form{
-    max-width:500px;
-    margin:auto;
-    background:#1a1a1a;
-    padding:20px;
-    border-radius:10px;
+max-width:700px;
+margin:auto;
 }
 
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:5px;
-    color:#ffd700;
-    font-size:16px;
-}
-
-input, select{
-    width:100%;
-    padding:10px;
-    border-radius:5px;
-    border:none;
-    outline:none;
+input,select{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:8px;
 }
 
 button{
-    margin-top:20px;
-    width:100%;
-    padding:12px;
-    background:#25D366;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-size:16px;
-    cursor:pointer;
+width:100%;
+padding:15px;
+background:#ffd700;
+border:none;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
 }
 
-button:hover{
-    background:#fff;
-    color:#000;
-    transition:0.3s;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
 }
 
-.card:hover,
-.info-box:hover{
-    transform:translateY(-5px);
-    transition:0.3s;
-    box-shadow:0 0 20px rgba(255,215,0,0.3);
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-.whatsapp-btn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#25D366;
-    color:white;
-    font-size:30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    text-decoration:none;
-    box-shadow:0 0 15px rgba(0,0,0,.3);
-    z-index:999;
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:12px;
 }
 
 footer{
-    text-align:center;
-    margin-top:40px;
-    color:#ffd700;
+background:#000;
+padding:40px;
+text-align:center;
 }
 
-img{
-    width:100%;
-    margin-top:10px;
-    border-radius:10px;
+.countdown{
+font-size:30px;
+margin-top:20px;
+color:#ffd700;
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="hero">
+<h1>🏵️ শর্বজনীন দুর্গা পূজা সমিতি 🏵️</h1>
+<h2>Durga Puja Dance Competition 2026</h2>
+
+<p>
+Welcome to the official Dance Competition Registration Portal.
+Join us and showcase your talent on the grand Durga Puja stage.
+</p>
+
+<div class="countdown" id="countdown"></div>
+
+<a href="#register" class="btn">Register Now</a>
+</div>
+</header>
+
+<section>
+<h2 class="section-title">Event Information</h2>
+
+<div class="info">
+
+<div class="info-box">
+<h3>📅 Registration Open</h3>
+<p>01 September 2026</p>
+</div>
+
+<div class="info-box">
+<h3>⏰ Registration Close</h3>
+<p>25 September 2026</p>
+</div>
+
+<div class="info-box">
+<h3>💰 Entry Fee</h3>
+<p>₹10 Per Participant</p>
+</div>
+
+<div class="info-box">
+<h3>🏆 Event Date</h3>
+<p>02 October 2026 | 4 PM</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Prize Details</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🥇 First Prize</h3>
+<p>₹3000 + Trophy</p>
+</div>
+
+<div class="card">
+<h3>🥈 Second Prize</h3>
+<p>₹2000 + Trophy</p>
+</div>
+
+<div class="card">
+<h3>🥉 Third Prize</h3>
+<p>₹1000 + Trophy</p>
+</div>
+
+</div>
+</section>
+
+<section id="register">
+<h2 class="section-title">Registration Form</h2>
+
 <form>
-    <label><b>👤 Participant Name / অংশগ্রহণকারীর নাম</b></label>
-    <input type="text" placeholder="Participant Name" required>
 
-    <label><b>📱 Mobile Number / মোবাইল নম্বর</b></label>
-    <input type="tel" placeholder="Mobile Number" required>
+<input type="text" placeholder="Participant Name" required>
 
-    <label><b>🎂 Age / বয়স</b></label>
-    <input type="number" placeholder="Age" required>
+<input type="tel" placeholder="Mobile Number" required>
 
-    <label><b>💃 Dance Category</b></label>
-    <select required>
-        <option>Solo Dance</option>
-        <option>Group Dance</option>
-        <option>Kids Dance</option>
-        <option>Folk Dance</option>
-    </select>
+<input type="number" placeholder="Age" required>
 
-    <label><b>📷 Participant Photo / অংশগ্রহণকারীর ছবি</b></label>
-    <input type="file" accept="image/*">
+<select required>
+<option>Solo Dance</option>
+<option>Group Dance</option>
+</select>
 
-    <label><b>💰 Payment Screenshot / পেমেন্ট স্ক্রিনশট</b></label>
-    <input type="file" accept="image/*">
+<input type="file">
 
-    <button type="submit">🎉 Submit Registration</button>
+<button type="submit">Submit Registration</button>
+
 </form>
+</section>
 
-<a href="https://wa.me/919267988960" class="whatsapp-btn">💬</a>
+<section>
+<h2 class="section-title">Durga Puja Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1606298855672-3efb63017be8?q=80&w=800&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1631387736926-1f4d26e9dd98?q=80&w=800&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1605538883669-8256a57f8f6e?q=80&w=800&auto=format&fit=crop">
+
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Contact</h2>
+
+<div class="info">
+
+<div class="info-box">
+<h3>Organizer</h3>
+<p>Shorbo Jonin Durga Puja Samiti</p>
+</div>
+
+<div class="info-box">
+<h3>Mobile</h3>
+<p>+91 92679 88960</p>
+</div>
+
+<div class="info-box">
+<h3>Location</h3>
+<p>Kolkata, West Bengal</p>
+</div>
+
+</div>
+</section>
 
 <footer>
-    <h3>🏵️ Shorbo Jonin Durga Puja Samiti</h3>
-    <p>Durga Puja Dance Competition 2026</p>
-    <p>Designed with ❤️ for our community celebration</p>
+<h3>🏵️ Shorbo Jonin Durga Puja Samiti</h3>
+<p>Durga Puja Dance Competition 2026</p>
 </footer>
 
-<img src="images/durga1.jpg">
-<img src="images/durga2.jpg">
-<img src="images/stage.jpg">
+<script>
+const targetDate = new Date("October 2, 2026 16:00:00").getTime();
+
+setInterval(() => {
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+"⏳ " + days + " Days " + hours + " Hours " + minutes + " Minutes Left";
+},1000);
+</script>
 
 </body>
 </html>
