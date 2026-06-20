@@ -224,24 +224,25 @@ Join us and showcase your talent on the grand Durga Puja stage.
 <section id="register">
 <h2 class="section-title">Registration Form</h2>
 
-<form>
+<form id="registrationForm">
 
-<input type="text" placeholder="Participant Name" required>
+<input type="text" id="name" placeholder="Participant Name" required>
 
-<input type="tel" placeholder="Mobile Number" required>
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
 
-<input type="number" placeholder="Age" required>
+<input type="number" id="age" placeholder="Age" required>
 
-<select required>
-<option>Solo Dance</option>
-<option>Group Dance</option>
+<select id="category" required>
+<option value="Solo Dance">Solo Dance</option>
+<option value="Group Dance">Group Dance</option>
 </select>
 
-<input type="file">
+<input type="file" id="file">
 
 <button type="submit">Submit Registration</button>
 
 </form>
+
 </section>
 
 <section>
@@ -356,3 +357,94 @@ document.getElementById("countdown").innerHTML =
 </script>
 </body>
 </html>
+
+<script>
+const targetDate = new Date("October 2, 2026 16:00:00").getTime();
+
+setInterval(() => {
+...
+},1000);
+</script>
+
+</body>
+</html>
+<script>
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxiMcSjceRX6gFBOMzAwqCsHgieARjh3llwX_0Hozhyt0n9H9pNyNcPljiZL86AV1Ra/exec";
+
+document.getElementById("registrationForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const submitBtn = document.querySelector("button[type='submit']");
+submitBtn.innerText = "Uploading...";
+submitBtn.disabled = true;
+
+try{
+
+const fileInput = document.getElementById("file");
+let fileData = null;
+
+if(fileInput.files.length > 0){
+
+const file = fileInput.files[0];
+
+const base64 = await new Promise((resolve,reject)=>{
+
+const reader = new FileReader();
+
+reader.onload = () => resolve(reader.result.split(",")[1]);
+
+reader.onerror = reject;
+
+reader.readAsDataURL(file);
+
+});
+
+fileData = {
+name:file.name,
+type:file.type,
+data:base64
+};
+
+}
+
+const payload = {
+name:document.getElementById("name").value,
+mobile:document.getElementById("mobile").value,
+age:document.getElementById("age").value,
+category:document.getElementById("category").value,
+file:fileData
+};
+
+const response = await fetch(SCRIPT_URL,{
+method:"POST",
+body:JSON.stringify(payload)
+});
+
+const result = await response.json();
+
+if(result.result === "success"){
+
+alert("🎉 Registration Submitted Successfully!");
+document.getElementById("registrationForm").reset();
+
+}else{
+
+alert("❌ Error: " + result.message);
+
+}
+
+}catch(err){
+
+console.error(err);
+alert("❌ Upload Failed");
+
+}
+
+submitBtn.innerText = "Submit Registration";
+submitBtn.disabled = false;
+
+});
+
+</script>
