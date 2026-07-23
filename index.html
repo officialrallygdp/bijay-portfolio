@@ -311,27 +311,43 @@ document.getElementById("countdown").innerHTML =
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxiMcSjceRX6gFBOMzAwqCsHgieARjh3llwX_0Hozhyt0n9H9pNyNcPljiZL86AV1Ra/exec";
 
-document.getElementById("registrationForm").addEventListener("submit", async function(e){
+const fileInput = document.getElementById("file");
 
-e.preventDefault();
+let fileData = null;
 
-const submitBtn = document.querySelector("button[type='submit']");
-submitBtn.innerText = "Submitting...";
-submitBtn.disabled = true;
+if (fileInput.files.length > 0) {
 
-try{
+    const file = fileInput.files[0];
+
+    fileData = await new Promise((resolve) => {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            resolve({
+                name: file.name,
+                type: file.type,
+                data: e.target.result.split(",")[1]
+            });
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
 
 const payload = {
-name: document.getElementById("name").value,
-mobile: document.getElementById("mobile").value,
-age: document.getElementById("age").value,
-category: document.getElementById("category").value
-};
 
-await fetch(SCRIPT_URL,{
-method:"POST",
-body:JSON.stringify(payload)
-});
+    name: document.getElementById("name").value,
+    mobile: document.getElementById("mobile").value,
+    age: document.getElementById("age").value,
+    category: document.getElementById("category").value,
+    file: fileData
+
+};
 
 alert("🎉 Registration Submitted Successfully!");
 
