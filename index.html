@@ -291,24 +291,7 @@ Join us and showcase your talent on the grand Durga Puja stage.
 <h3>🏵️ Bani kanta tola Sarbo jonin Durga Puja Samiti</h3>
 <p>Durga Puja Dance Competition 2026</p>
 </footer>
-  
-<script>
-const targetDate = new Date("October 2, 2026 16:00:00").getTime();
-
-setInterval(() => {
-const now = new Date().getTime();
-const distance = targetDate - now;
-
-const days = Math.floor(distance/(1000*60*60*24));
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("countdown").innerHTML =
-"⏳ " + days + " Days " + hours + " Hours " + minutes + " Minutes Left";
-},1000);
-</script>
-<script>
-
+  <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxiMcSjceRX6gFBOMzAwqCsHgieARjh3llwX_0Hozhyt0n9H9pNyNcPljiZL86AV1Ra/exec";
 
 document.getElementById("registrationForm").addEventListener("submit", async function(e){
@@ -321,21 +304,67 @@ submitBtn.disabled = true;
 
 try{
 
+let fileData = null;
+
+const fileInput = document.getElementById("file");
+
+if(fileInput.files.length > 0){
+
+    const file = fileInput.files[0];
+
+    fileData = await new Promise((resolve,reject)=>{
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            resolve({
+                name:file.name,
+                type:file.type,
+                data:e.target.result.split(",")[1]
+            });
+
+        };
+
+        reader.onerror = reject;
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
 const payload = {
+
 name: document.getElementById("name").value,
 mobile: document.getElementById("mobile").value,
 age: document.getElementById("age").value,
-category: document.getElementById("category").value
+category: document.getElementById("category").value,
+file: fileData
+
 };
 
-await fetch(SCRIPT_URL,{
+const response = await fetch(SCRIPT_URL,{
 method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify(payload)
 });
-  
+
+const result = await response.json();
+
+if(result.result=="success"){
+
 alert("🎉 Registration Submitted Successfully!");
 
 document.getElementById("registrationForm").reset();
+
+}else{
+
+alert(result.message);
+
+}
 
 }catch(err){
 
@@ -344,12 +373,9 @@ alert("❌ Upload Failed");
 
 }
 
-submitBtn.innerText = "Submit Registration";
-submitBtn.disabled = false;
+submitBtn.innerText="Submit Registration";
+submitBtn.disabled=false;
 
 });
-
 </script>
 
-</body>
-</html>
