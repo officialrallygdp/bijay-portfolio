@@ -304,78 +304,14 @@ submitBtn.disabled = true;
 
 try{
 
-let fileData = null;
-
-const fileInput = document.getElementById("file");
-
-if(fileInput.files.length > 0){
-
-    const file = fileInput.files[0];
-
-    fileData = await new Promise((resolve,reject)=>{
-
-        const reader = new FileReader();
-
-        reader.onload = function(e){
-
-            resolve({
-                name:file.name,
-                type:file.type,
-                data:e.target.result.split(",")[1]
-            });
-
-        };
-
-        reader.onerror = reject;
-
-        reader.readAsDataURL(file);
-
-    });
-
-}
-
 const payload = {
-
 name: document.getElementById("name").value,
 mobile: document.getElementById("mobile").value,
 age: document.getElementById("age").value,
-category: document.getElementById("category").value,
-file: fileData
-
+category: document.getElementById("category").value
 };
 
-const response = await fetch(SCRIPT_URL,{
+await fetch(SCRIPT_URL,{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
 body:JSON.stringify(payload)
 });
-
-const result = await response.json();
-
-if(result.result=="success"){
-
-alert("🎉 Registration Submitted Successfully!");
-
-document.getElementById("registrationForm").reset();
-
-}else{
-
-alert(result.message);
-
-}
-
-}catch(err){
-
-console.error(err);
-alert("❌ Upload Failed");
-
-}
-
-submitBtn.innerText="Submit Registration";
-submitBtn.disabled=false;
-
-});
-</script>
-
